@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎮 Roblox Lua Super Divertente!</title>
+<style>
+/* ==================== STILE BASE ==================== */
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    color: #333;
+}
+
+h1,h2,h3 {
+    text-align: center;
+    text-shadow: 2px 2px #fff;
+}
+
+h1 {
+    font-size: 3em;
+    color: #ff1493;
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    color: #6a5acd;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #ff69b4;
+}
+
+p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 10px auto;
+}
+
+.box {
+    background: #fff0f5;
+    border: 3px solid #ff69b4;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 25px auto;
+    max-width: 850px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+.button {
+    background-color: #ff69b4;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 15px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+    background-color: #ff85c1;
+    transform: scale(1.1);
+}
+
+.guide {
+    display: none;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 18px;
+    color: #6a5acd;
+    background-color: #ffe4f0;
+    padding: 15px;
+    border-radius: 15px;
+    border: 2px solid #ff69b4;
+}
+
+nav {
+    background-color: #ffb6c1;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    border-bottom: 3px solid #ff69b4;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #ff85c1;
+}
+
+.bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,20%,50%,80%,100% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(-7px); }
+}
+
+.footer {
+    background-color: #ffb6c1;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 3px solid #ff69b4;
+    border-radius: 20px 20px 0 0;
+    text-align: center;
+}
+
+/* ==================== TOOLTIP ==================== */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  color: #ff1493;
+  font-weight: bold;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 220px;
+  background-color: #ff85c1;
+  color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; 
+  left: 50%;
+  margin-left: -110px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== MENU ==================== -->
+<nav>
+<a href="#intro">Home</a>
+<a href="#guida">Guida Lua</a>
+<a href="#video">Video</a>
+<a href="#quiz">Quiz</a>
+<a href="#creativo">Creatività</a>
+<a href="#extra">Extra</a>
+</nav>
+
+<!-- ==================== INTRO ==================== -->
+<div class="box" id="intro">
+<h1>🎮 Roblox Lua Super Divertente!</h1>
+<p>Ciao! Vuoi imparare a creare i tuoi giochi su Roblox? Qui imparerai passo passo come usare Lua per rendere il tuo mondo fantastico!</p>
+<button class="button" onclick="document.getElementById('guideIntro').style.display='block'">Mostrami un esempio!</button>
+<div id="guideIntro" class="guide">
+<h3>Esempio di codice Lua base:</h3>
+<pre>
+-- Muovi un cubo in avanti
+local cubo = workspace.Cubo
+cubo.Position = cubo.Position + Vector3.new(1,0,0)
+</pre>
+<p><strong>Spiegazione:</strong> workspace.Cubo è l’oggetto, Position indica la posizione, Vector3.new(1,0,0) significa "sposta di 1 passo sull'asse X".</p>
+</div>
+</div>
+
+<!-- ==================== GUIDA ==================== -->
+<div class="box" id="guida">
+<h2>🛠️ Guida Passo Passo</h2>
+<p>Segui queste istruzioni per iniziare a creare il tuo primo gioco su Roblox Studio!</p>
+<button class="button" onclick="document.getElementById('guide1').style.display='block'">Mostrami come!</button>
+<div id="guide1" class="guide">
+<h3>Passaggi iniziali:</h3>
+<ul>
+<li>Apri Roblox Studio</li>
+<li>Scegli un template o crea un gioco vuoto</li>
+<li>Aggiungi un cubo e spostalo</li>
+<li>Cambia colori e forme</li>
+<li>Scrivi un piccolo script Lua per muovere il cubo</li>
+<li>Salva e testa subito</li>
+<li>Non aver paura di sbagliare!</li>
+<li>Divertiti!</li>
+<li>Aggiungi effetti e suoni</li>
+<li>Invita amici a giocare</li>
+<li>Prova a combinare più script</li>
+<li>Crea un labirinto semplice</li>
+<li>Fai saltare un cubo con un comando</li>
+<li>Scrivi messaggi sullo schermo</li>
+<li>Usa loop per ripetere azioni</li>
+<li>Cambia proprietà degli oggetti via script</li>
+<li>Prova tweening per animazioni fluide</li>
+<li>Salva diversi template</li>
+<li>Guarda tutorial video</li>
+<li>Divertiti!</li>
+</ul>
+</div>
+</div>
+
+<!-- ==================== VIDEO ==================== -->
+<div class="box" id="video">
+<h2>🎥 Video Tutorial Roblox Lua</h2>
+<iframe width="100%" height="400" src="https://www.youtube.com/embed/VIDEOID" title="Roblox Lua Tutorial" frameborder="0" allowfullscreen></iframe>
+<p>Segui passo passo come creare il tuo primo gioco!</p>
+</div>
+
+<!-- ==================== QUIZ ==================== -->
+<div class="box" id="quiz">
+<h2>📝 Quiz: Sai programmare in Lua?</h2>
+<form id="quizForm">
+<p>1. Come muovi un cubo in avanti?</p>
+<input type="radio" name="q1" value="a"> cubo.Position += Vector3.new(1,0,0)<br>
+<input type="radio" name="q1" value="b"> cubo.Move(1,0,0)<br>
+<input type="radio" name="q1" value="c"> cubo.Position = cubo.Position<br>
+
+<p>2. Come fai suonare un cubo?</p>
+<input type="radio" name="q2" value="a"> cubo.PlaySound()<br>
+<input type="radio" name="q2" value="b"> Instance.new("Sound")<br>
+<input type="radio" name="q2" value="c"> cubo.Sing()<br>
+
+<p>3. Come crei un NPC?</p>
+<input type="radio" name="q3" value="a"> Instance.new("NPC")<br>
+<input type="radio" name="q3" value="b"> game.Workspace.NPC = {}<br>
+<input type="radio" name="q3" value="c"> Instance.new("Model")<br>
+
+<button class="button" type="button" onclick="checkQuiz()">Controlla Risposte</button>
+</form>
+<div id="quizResult" class="guide"></div>
+</div>
+
+<script>
+function checkQuiz(){
+    let q1 = document.querySelector('input[name="q1"]:checked')?.value;
+    let q2 = document.querySelector('input[name="q2"]:checked')?.value;
+    let q3 = document.querySelector('input[name="q3"]:checked')?.value;
+    let result = "";
+    if(q1==="a") result+="Domanda 1: ✔️ Corretta!\n"; else result+="Domanda 1: ❌ Sbagliata!\n";
+    if(q2==="b") result+="Domanda 2: ✔️ Corretta!\n"; else result+="Domanda 2: ❌ Sbagliata!\n";
+    if(q3==="c") result+="Domanda 3: ✔️ Corretta!\n"; else result+="Domanda 3: ❌ Sbagliata!\n";
+    document.getElementById('quizResult').style.display='block';
+    document.getElementById('quizResult').innerText=result;
+}
+</script>
+<!-- ==================== CREATIVITÀ ==================== -->
+<div class="box" id="creativo">
+<h2>🎨 Sii creativo!</h2>
+<p>Puoi scegliere colori, suoni, personaggi e storie. La tua immaginazione diventa realtà!</p>
+<button class="button" onclick="document.getElementById('guideCreativo').style.display='block'">Guida creativa!</button>
+<div id="guideCreativo" class="guide">
+<h3>Idee creative per il tuo gioco:</h3>
+<ul>
+<li>Cambia colori e luci del tuo gioco</li>
+<li>Aggiungi suoni divertenti quando succede qualcosa</li>
+<li>Disegna personaggi unici o usa quelli di Roblox</li>
+<li>Scrivi una piccola storia da seguire nel gioco</li>
+<li>Usa teletrasporti tra mappe diverse</li>
+<li>Crea livelli con difficoltà crescente</li>
+<li>Prova effetti particellari su eventi speciali</li>
+<li>Imposta punteggi e premi per i giocatori</li>
+<li>Fai comparire messaggi divertenti quando succede qualcosa</li>
+<li>Metti ostacoli interattivi che cambiano posizione</li>
+<li>Costruisci un labirinto dinamico con script</li>
+<li>Crea un mini-giochi dentro il tuo gioco principale</li>
+<li>Inserisci NPC che parlano usando dialoghi</li>
+<li>Aggiungi porte che si aprono con pulsanti</li>
+<li>Prova telecamere dinamiche con script Lua</li>
+<li>Usa eventi quando il giocatore entra in un’area</li>
+<li>Fai sparire oggetti dopo averli raccolti</li>
+<li>Crea una valuta interna e oggetti acquistabili</li>
+<li>Prova effetti speciali come fuoco, fumo, luce magica</li>
+<li>Non smettere mai di sperimentare!</li>
+</ul>
+</div>
+</div>
+
+<!-- ==================== SCRIPT LUA AVANZATI ==================== -->
+<div class="box" id="extra">
+<h2>💻 Script Lua Avanzati</h2>
+<p>Ecco alcuni script pronti da usare o modificare!</p>
+<button class="button" onclick="document.getElementById('lua1').style.display='block'">Script Movimento Personaggio</button>
+<div id="lua1" class="guide">
+<pre>
+-- Script: Movimento semplice del personaggio
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+humanoid.WalkSpeed = 20  -- Aumenta velocità
+</pre>
+</div>
+
+<button class="button" onclick="document.getElementById('lua2').style.display='block'">Script Salto Speciale</button>
+<div id="lua2" class="guide">
+<pre>
+-- Salto extra alto
+humanoid.JumpPower = 100
+humanoid.Jump = true
+</pre>
+</div>
+
+<button class="button" onclick="document.getElementById('lua3').style.display='block'">Script Teletrasporto</button>
+<div id="lua3" class="guide">
+<pre>
+-- Teletrasporto
+local part = workspace.TeleportPart
+part.Touched:Connect(function(hit)
+    local character = hit.Parent
+    if character:FindFirstChild("Humanoid") then
+        character:SetPrimaryPartCFrame(CFrame.new(50,10,50))
+    end
+end)
+</pre>
+</div>
+
+<button class="button" onclick="document.getElementById('lua4').style.display='block'">Script Messaggio Popup</button>
+<div id="lua4" class="guide">
+<pre>
+-- Mostra messaggio sullo schermo
+local player = game.Players.LocalPlayer
+local gui = Instance.new("ScreenGui", player.PlayerGui)
+local label = Instance.new("TextLabel", gui)
+label.Text = "Benvenuto nel gioco!"
+label.Size = UDim2.new(0,300,0,50)
+label.Position = UDim2.new(0.5,-150,0.1,0)
+label.TextScaled = true
+label.BackgroundColor3 = Color3.fromRGB(255,182,193)
+</pre>
+</div>
+
+<button class="button" onclick="document.getElementById('lua5').style.display='block'">Script Punteggio</button>
+<div id="lua5" class="guide">
+<pre>
+-- Sistema punteggio
+local leaderstats = Instance.new("Folder")
+leaderstats.Name = "leaderstats"
+leaderstats.Parent = game.Players.LocalPlayer
+
+local score = Instance.new("IntValue")
+score.Name = "Punti"
+score.Value = 0
+score.Parent = leaderstats
+</pre>
+</div>
+
+<button class="button" onclick="document.getElementById('lua6').style.display='block'">Script Oggetti Interattivi</button>
+<div id="lua6" class="guide">
+<pre>
+-- Raccogli oggetto
+local part = workspace.Oggetto
+part.Touched:Connect(function(hit)
+    local character = hit.Parent
+    if character:FindFirstChild("Humanoid") then
+        part:Destroy()
+        print("Oggetto raccolto!")
+    end
+end)
+</pre>
+</div>
+
+<button class="button" onclick="document.getElementById('lua7').style.display='block'">Script Portale</button>
+<div id="lua7" class="guide">
+<pre>
+-- Porta che teletrasporta
+local porta = workspace.Porta
+porta.Touched:Connect(function(hit)
+    if hit.Parent:FindFirstChild("Humanoid") then
+        hit.Parent:SetPrimaryPartCFrame(CFrame.new(0,10,0))
+    end
+end)
+</pre>
+</div>
+
+<button class="button" onclick="document.getElementById('lua8').style.display='block'">Script Suoni</button>
+<div id="lua8" class="guide">
+<pre>
+-- Suono interattivo
+local sound = Instance.new("Sound", workspace)
+sound.SoundId = "rbxassetid://12345678"
+workspace.Part.Touched:Connect(function(hit)
+    sound:Play()
+end)
+</pre>
+</div>
+
+<button class="button" onclick="document.getElementById('lua9').style.display='block'">Script Animazioni</button>
+<div id="lua9" class="guide">
+<pre>
+-- Animazione semplice
+local player = game.Players.LocalPlayer
+local animator = player.Character.Humanoid:FindFirstChildOfClass("Animator")
+local anim = Instance.new("Animation")
+anim.AnimationId = "rbxassetid://87654321"
+animator:LoadAnimation(anim):Play()
+</pre>
+</div>
+
+<button class="button" onclick="document.getElementById('lua10').style.display='block'">Script Loop Effetti</button>
+<div id="lua10" class="guide">
+<pre>
+-- Effetto particellare continuo
+local part = workspace.EffettoPart
+local emitter = Instance.new("ParticleEmitter", part)
+emitter.Rate = 10
+emitter.Lifetime = NumberRange.new(1,3)
+</pre>
+</div>
+</div>
+
+<!-- ==================== MINI-GIOCHI ==================== -->
+<div class="box">
+<h2>🎲 Mini-Giochi con Lua</h2>
+<p>Prova a creare questi giochi semplici ma divertenti!</p>
+<button class="button" onclick="document.getElementById('mini1').style.display='block'">Corsa a ostacoli</button>
+<div id="mini1" class="guide">
+<p>Usa cubi come ostacoli. Muovi il personaggio con script e rileva collisioni.</p>
+</div>
+
+<button class="button" onclick="document.getElementById('mini2').style.display='block'">Raccolta monete</button>
+<div id="mini2" class="guide">
+<p>Aggiungi monete sparse e incrementa punteggio quando il giocatore le raccoglie usando script Touched.</p>
+</div>
+
+<button class="button" onclick="document.getElementById('mini3').style.display='block'">Mini-labirinto</button>
+<div id="mini3" class="guide">
+<p>Costruisci un labirinto e usa script per teletrasportare il giocatore alla fine.</p>
+</div>
+</div>
+
+<!-- ==================== FOOTER ==================== -->
+<div class="footer">
+<h2>🚀 Diventa un programmatore oggi!</h2>
+<p>Non aspettare: inizia a programmare e costruisci il tuo mondo su Roblox! 💻🎮</p>
+<button class="button" onclick="alert('Sei pronto! Inizia a creare il tuo primo gioco!')">Inizia ora!</button>
+<p>Creando giochi impari, ti diverti e diventi un vero inventore digitale!</p>
+</div>
+
+</body>
+</html>
